@@ -6,15 +6,14 @@
 #    By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 08:04:49 by wcorrea-          #+#    #+#              #
-#    Updated: 2023/05/14 12:28:39 by wcorrea-         ###   ########.fr        #
+#    Updated: 2023/05/14 19:27:08 by wcorrea-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OUT = so_long
 
 SRC = src/main.c src/utils.c src/create_map.c src/clean_exit.c \
-		src/check_map.c \
-		src/tmp.c
+		src/check_map.c src/graphics.c src/moves.c
 
 OBJS = ${SRC:.c=.o}
 

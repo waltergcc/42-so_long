@@ -6,23 +6,26 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/14 12:28:03 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/14 20:38:43 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_game(char *file)
+void	launch_game(char *file)
 {
-	t_game	so_long;
+	t_game	sl;
 
-	ft_bzero(&so_long, sizeof(t_game));
-	read_map(&so_long, file);
-	check_map(&so_long);
-	map_print(so_long.map);
-	ft_putstr("All working until here!\n");
-	quit_game(&so_long);
-
+	ft_bzero(&sl, sizeof(t_game));
+	read_map(&sl, file);
+	check_map(&sl);
+	launch_mlx(&sl, sl.map);
+	load_assets(&sl);
+	render_map(&sl, sl.map);
+	mlx_hook(sl.display.win, ON_KEYPRESS, KEYPRESS_MASK, move_control, &sl);
+	mlx_hook(sl.display.win, ON_CLOSE, CLOSE_MASK, quit_game, &sl);
+	mlx_loop_hook(sl.display.mlx, render_frame, &sl);
+	mlx_loop(sl.display.mlx);
 }
 
 int	main(int ac, char **av)
@@ -30,5 +33,5 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		exit_error(NULL, "Invalid number of arguments.");
 	check_filename(av[1]);
-	init_game(av[1]);
+	launch_game(av[1]);
 }

@@ -6,13 +6,13 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 10:34:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/14 12:12:15 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/14 14:39:26 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_map	*create_map(unsigned int cols, unsigned int rows)
+t_map	*create_map(t_uint cols, t_uint rows)
 {
 	t_map	*map;
 
@@ -54,9 +54,9 @@ int	get_rows(t_game *so_long, char *file)
 
 void	read_map(t_game *so_long, char *file)
 {
-	int				fd;
-	char			*line;
-	unsigned int	i;
+	int		fd;
+	char	*line;
+	t_uint	i;
 
 	i = -1;
 	so_long->map = create_map(0, get_rows(so_long, file));
