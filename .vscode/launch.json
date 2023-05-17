@@ -8,7 +8,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/so_long/so_long",
             "args": [
-				"so_long/assets/maps/valid0.ber"
+				"so_long/assets/maps/3.ber"
 			],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

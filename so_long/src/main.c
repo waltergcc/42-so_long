@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:44:54 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/14 20:38:43 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:26:31 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	launch_game(char *file)
 	launch_mlx(&sl, sl.map);
 	load_assets(&sl);
 	render_map(&sl, sl.map);
-	mlx_hook(sl.display.win, ON_KEYPRESS, KEYPRESS_MASK, move_control, &sl);
+	mlx_hook(sl.display.win, ON_KEYPRESS, KEYPRESS_MASK, check_keypress, &sl);
 	mlx_hook(sl.display.win, ON_CLOSE, CLOSE_MASK, quit_game, &sl);
-	mlx_loop_hook(sl.display.mlx, render_frame, &sl);
+	mlx_loop_hook(sl.display.mlx, render_move, &sl);
 	mlx_loop(sl.display.mlx);
 }
 

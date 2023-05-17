@@ -6,13 +6,13 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:48:12 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/17 02:25:38 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:25:35 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_tile	check_tile(t_game *so_long, t_point p)
+t_tile	get_tile(t_game *so_long, t_point p)
 {
 	return (so_long->map->tiles[p.y][p.x]);
 }

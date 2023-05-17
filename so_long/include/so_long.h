@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 09:42:28 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/15 22:32:10 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:26:47 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ typedef struct s_game
 	t_uint		moves;
 }					t_game;
 
-t_tile	check_tile(t_game *so_long, t_point p);
+t_tile	get_tile(t_game *so_long, t_point p);
 int		flood_fill(t_map *map, t_point curr, char **path);
 int		exit_error(t_game *so_long, char *msg);
 void	check_filename(char *file);
@@ -127,12 +127,12 @@ void	read_map(t_game *so_long, char *file);
 
 void	launch_mlx(t_game *so_long, t_map *map);
 void	load_assets(t_game *so_long);
-int		render_frame(t_game *so_long);
+int		render_move(t_game *so_long);
 void	render_tile(t_game *so_long, t_point p);
 void	render_map(t_game *so_long, t_map *map);
 
 void	move_player(t_game *sl, t_map *map);
 int		check_move(t_game *so_long);
-int		move_control(int key, t_game *so_long);
+int		check_keypress(int key, t_game *so_long);
 
 #endif

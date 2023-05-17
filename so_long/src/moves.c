@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 19:21:29 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/14 21:09:56 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/17 09:24:34 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_move(t_game *so_long)
 {
 	return (!is_same_point(so_long->curr, so_long->next) \
-		&& check_tile(so_long, so_long->next) != WALL);
+		&& get_tile(so_long, so_long->next) != WALL);
 }
 
 void	move_player(t_game *sl, t_map *map)
@@ -23,7 +23,7 @@ void	move_player(t_game *sl, t_map *map)
 	static t_tile	previous = SPACE;
 
 	map->tiles[sl->curr.y][sl->curr.x] = previous;
-	if (check_tile(sl, sl->next) != COIN)
+	if (get_tile(sl, sl->next) != COIN)
 		previous = map->tiles[sl->next.y][sl->next.x];
 	else
 		previous = SPACE;
@@ -33,7 +33,7 @@ void	move_player(t_game *sl, t_map *map)
 	sl->curr = sl->next;
 }
 
-int	move_control(int key, t_game *so_long)
+int	check_keypress(int key, t_game *so_long)
 {
 	if (key == ESC)
 		quit_game(so_long);
