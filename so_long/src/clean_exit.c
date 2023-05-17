@@ -6,7 +6,7 @@
 /*   By: wcorrea- <wcorrea-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:28:49 by wcorrea-          #+#    #+#             */
-/*   Updated: 2023/05/17 11:43:42 by wcorrea-         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:28:24 by wcorrea-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	clean_map(t_map *map)
 	clean_tiles(map->tiles);
 	free (map);
 }
-
 
 void	clean_sprites(t_game *so_long)
 {
